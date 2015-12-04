@@ -5,7 +5,9 @@
 	src: url("../fonts/NewRocker-Regular.otf") format("opentype");
 }
 
-/* Global */
+/**
+ * Global
+ */
 
 body {
 	background: #110c09 url('../images/background-artwork.jpg') top left scroll no-repeat !important;
@@ -20,7 +22,9 @@ body {
 	padding-top: 10px;
 }
 
-/* Header */
+/**
+ * Header
+ */
 
 .header {
 	width: 980px;
@@ -86,7 +90,9 @@ body {
 	padding: 0 !important;
 }
 
-/* News */
+/**
+ * News
+ */
 
 .news img {
 	max-width: 100%;
@@ -106,7 +112,21 @@ body {
 	padding-bottom: 5px;
 }
 
-/* Footer */
+/**
+ * App
+ */
+
+.form-actions {
+	padding: 17px 20px 18px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e5e5e5;
+}
+
+/**
+ * Footer
+ */
 
 .footer {
 	text-align: center;
