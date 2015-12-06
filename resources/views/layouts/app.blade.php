@@ -8,21 +8,21 @@
     <title>@yield('title') - TFSAccMaker</title>
 
     <!--  regular browsers -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('favicon.ico') }}" type="image/x-icon">
     <!-- For iPad with high-resolution Retina display running iOS = 7: -->
-    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ url('apple-touch-icon-152x152.png') }}">
 
     <!-- Open Sans font -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}">
 
     <!-- app style sheet -->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{ url('css/app.css') }}">
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +33,7 @@
   </head>
   <body>
     <header class="header">
-      <a href="/"><img src="images/tfsaccmaker-logo-black.png" alt="TFSAccMaker"></a>
+      <a href="/"><img src="{{ url('images/tfsaccmaker-logo-black.png') }}" alt="TFSAccMaker"></a>
 
       @include('partials.nav')
 
@@ -78,7 +78,7 @@
             <table class="table table-condensed table-content table-striped">
               <tbody>
                 <tr>
-                  <td colspan="2"><strong>IP:</strong> tfsaccmaker.dev</td>
+                  <td colspan="2"><strong>IP:</strong> {{ $_SERVER['SERVER_NAME'] }}</td>
                 </tr>
                 <tr>
                   <td><strong>Client:</strong></td>
@@ -136,6 +136,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ url('js/bootstrap.min.js') }}"></script>
   </body>
 </html>

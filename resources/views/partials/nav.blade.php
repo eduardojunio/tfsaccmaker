@@ -44,18 +44,39 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li {!! (Request::is('register')) ? 'class="active"' : '' !!}><a href="register"><i class="glyphicon glyphicon-share-alt"></i> Create account</a></li>
+        @if ($user === null)
+          <li {!! (Request::is('register')) ? 'class="active"' : '' !!}><a href="/register"><i class="glyphicon glyphicon-share-alt"></i> Create account</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-              <form method="post" action="login" accept-charset="UTF-8" style="padding: 15px;">
-                <input style="margin-bottom: 5px;padding: 4px 5px;" type="text" placeholder="Username" id="username" name="username">
-                <input style="margin-bottom: 10px;padding: 4px 5px;" type="password" placeholder="Password" id="password" name="password">
-                <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In" style="margin-bottom: 5px;">
-                <a href="#"><input class="btn btn-default" type="button" value="Forgot password?" style="width: 100%;"></a>
-              </form>
+            <div class="dropdown-menu" style="width: 225px;">
+              <div style="padding: 15px;">
+                {!! Form::open(['action' => 'Auth\AuthController@postLogin']) !!}
+                  <div class="form-group">
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Accout name', 'required' => 'required']) !!}
+                  </div>
+                  <div class="form-group">
+                    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password', 'required' => 'required']) !!}
+                  </div>
+                  <div class="checkbox" style="color: #fff;">
+                    <label>
+                      {!! Form::checkbox('remember', null, null) !!} Stay signed in
+                    </label>
+                  </div>
+                  {!! Form::submit('Sign In', ['class' => 'btn btn-primary btn-block', 'style' => 'margin-bottom: 5px;']) !!}
+                  <a href="/password/email"><input class="btn btn-default" type="button" value="Forgot password?" style="width: 100%;"></a>
+                {!! Form::close() !!}
+              </div>
             </div>
           </li>
+        @else
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> {{ $user->name }} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/account">Account Management</a></li>
+              <li><a href="/logout">Sign Out</a></li>
+            </ul>
+          </li>
+        @endif
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
