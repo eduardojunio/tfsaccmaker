@@ -13,6 +13,9 @@ class UpdatePlayersTable extends Migration
     {
         Schema::table('players', function ($table) {
             $table->integer('user_id')->index();
+            $table->timeStamp('can_delete');
+            $table->text('comment');
+            $table->integer('hide')->default(0);
             $table->timeStamps();
         });
     }
@@ -24,8 +27,8 @@ class UpdatePlayersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function ($table) {
-            $table->dropColumn(['user_id', 'created_at', 'updated_at']);
+        Schema::table('players', function ($table) {
+            $table->dropColumn(['user_id', 'created_at', 'updated_at', 'can_delete', 'hide', 'comment']);
         });
     }
 }

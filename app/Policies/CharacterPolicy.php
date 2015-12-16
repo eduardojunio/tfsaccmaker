@@ -10,8 +10,8 @@ class CharacterPolicy
 {
     use HandlesAuthorization;
 
-    public function delete(User $user, Character $character)
+    public function manage(User $user, Character $character)
     {
-        return $user->id === $character->user_id;
+        return $user->id === $character->account_id;
     }
 }

@@ -5,22 +5,48 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
+use Carbon\Carbon;
+use Config;
 use Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**
+     * Max characters that the player can create.
+     *
+     */
+    protected $maxCharacters;
+
+    /**
+     * Days to pending deletion before the character could be deleted
+     * permanently.
+     *
+     */
+    protected $deletionDays;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->maxCharacters = Config::get('accmaker.maxCharacters');
+        $this->deletionDays = Config::get('accmaker.deletionDays');
     }
 
     public function getIndex(Request $request)
     {
         $characters = $request->user()->characters;
         $startNumber = 1;
+        $now = new Carbon;
+        $maxCharacters = $this->maxCharacters;
+        $deletionDays = $this->deletionDays;
 
-        return view('pages.account', compact('characters', 'startNumber'));
+        return view('pages.account', compact(
+            'characters',
+            'startNumber',
+            'now',
+            'maxCharacters',
+            'deletionDays'
+        ));
     }
 
     public function getResetPassword()
