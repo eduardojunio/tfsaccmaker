@@ -1,5 +1,14 @@
+
+# Created by https://www.gitignore.io/api/laravel
+
+### Laravel ###
+/bootstrap/compiled.php
 /vendor
 /node_modules
 Homestead.yaml
 Homestead.json
+.env.local.php
+.env.php
 .env
+composer.phar
+composer.lock

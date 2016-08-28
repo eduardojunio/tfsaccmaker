@@ -19,49 +19,7 @@
     </tr>
     <tr>
     <td style="width: 25%; vertical-align: top">Profession:</td>
-    <td>
-    <?php
-
-switch ($character->vocation) {
-    case 1:
-        echo 'Sorcerer';
-        break;
-
-    case 2:
-        echo 'Druid';
-        break;
-
-    case 3:
-        echo 'Paladin';
-        break;
-
-    case 4:
-        echo 'Knight';
-        break;
-
-    case 5:
-        echo 'Master Sorcerer';
-        break;
-
-    case 6:
-        echo 'Elder Druid';
-        break;
-
-    case 7:
-        echo 'Royal Paladin';
-        break;
-
-    case 8:
-        echo 'Elite Knight';
-        break;
-
-    default:
-        echo 'None';
-        break;
-}
-
-?>
-    </td>
+    <td>{{ $characterRepository->vocationName($character->vocation) }}</td>
     </tr>
     <tr>
     <td style="width: 25%; vertical-align: top">Level:</td>

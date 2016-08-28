@@ -64,7 +64,7 @@
             <h3>Server Status</h3>
             <table class="table table-condensed table-content table-striped">
             <tbody>
-            <tr><td><a href="online.php">{{ $online }} {{ ($online == 1) ? 'player' : 'players' }} online.</a></td></tr><tr><td><a href="casts.php">0 casts with 0 spectators.</a></td></tr><tr><td><strong>The next server save is in:</strong></td></tr><tr><td id="timeToServerSave">12 hours, 00 min and 00 sec.</td></tr></tbody>
+            <tr><td><a href="/online">{{ $online }} {{ ($online == 1) ? 'player' : 'players' }} online.</a></td></tr><tr><td><a href="casts.php">0 casts with 0 spectators.</a></td></tr><tr><td><strong>The next server save is in:</strong></td></tr><tr><td id="timeToServerSave">12 hours, 00 min and 00 sec.</td></tr></tbody>
             </table>
           </section>
         </aside>

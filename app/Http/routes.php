@@ -21,6 +21,9 @@ Route::controller('account', 'UserController');
 // Character routes...
 Route::controller('character', 'CharacterController');
 
+// OnlineCharacters routes...
+Route::controller('online', 'OnlineCharactersController');
+
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');

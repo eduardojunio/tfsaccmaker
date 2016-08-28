@@ -133,7 +133,9 @@ class CharacterController extends Controller
 
         $towns = Config::get('accmaker.towns');
 
-        return view('pages.character', compact('character', 'towns'));
+        $characterRepository = $this->characterRepository;
+
+        return view('pages.character', compact('character', 'towns', 'characterRepository'));
     }
 
     public function getNew()

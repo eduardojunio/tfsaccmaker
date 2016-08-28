@@ -16,7 +16,7 @@ class PartialsSidebarComposer
 
     public function compose(View $view)
     {
-        $online = $this->characterRepository->online();
+        $online = $this->characterRepository->totalOnline();
         $topFive = $this->characterRepository->topFive();
         $pos = 1;
 
